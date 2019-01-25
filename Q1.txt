@@ -1,1 +1,5 @@
 UNF : (personal number, name, date of birth, lab code, lab name, research code, research description, research supervisor)
+1NF: keys( personal number, lab code)
+Repeating groups( Research code, description, supervisor)
+(name, date of birth,lab name)
+
