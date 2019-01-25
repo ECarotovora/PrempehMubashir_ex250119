@@ -1,0 +1,67 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Disease`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Disease` (
+  `Gene_name` VARCHAR(30) NOT NULL,
+  `Chromosome` INT(3) NOT NULL,
+  `start` DOUBLE NOT NULL,
+  `end` DOUBLE NOT NULL,
+  `DisPAt` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`DisPAt`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Information`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Information` (
+  `ID` INT(12) NOT NULL,
+  `Patien_name` VARCHAR(45) NOT NULL,
+  `Patient_syndrome` VARCHAR(45) NOT NULL,
+  `Gender` ENUM('M', 'F', 'X') NOT NULL,
+  `Age` INT(3) NOT NULL,
+  `PatDis` INT(10) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`PatDis`),
+  CONSTRAINT `patDis`
+    FOREIGN KEY (`PatDis`)
+    REFERENCES `mydb`.`Disease` (`DisPAt`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`GeneInfo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`GeneInfo` (
+  `AffectedGene` VARCHAR(40) NOT NULL,
+  `Syndrome` VARCHAR(45) NOT NULL,
+  `InfoDis` INT(10) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`InfoDis`),
+  CONSTRAINT `InfoDis`
+    FOREIGN KEY (`InfoDis`)
+    REFERENCES `mydb`.`Disease` (`DisPAt`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
