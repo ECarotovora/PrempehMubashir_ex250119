@@ -7,3 +7,5 @@ select (seq_region_end - seq_region_start) as diff, gene_name from gene order by
 6a)select chromosome, description,gene_name, count(*) from gene where description like "canc%" group by chromosome order by count(*) desc;
 6b)
 
+7a)select count(*) from exon;
+7b)select count(*) from exon_transcript;
