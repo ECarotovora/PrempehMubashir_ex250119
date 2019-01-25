@@ -1,0 +1,4 @@
+ select (seq_region_end - seq_region_start), gene_name from gene order by (seq_region_end - seq_region_start) limit 1;
+## using the as statement
+select (seq_region_end - seq_region_start) as diff, gene_name from gene order by diff limit 1;
+
