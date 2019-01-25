@@ -2,3 +2,4 @@
 ## using the as statement
 select (seq_region_end - seq_region_start) as diff, gene_name from gene order by diff limit 1;
 
+select biotype,transcript_id, count(*) from transcript group by biotype order by count(*) desc;
