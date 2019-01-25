@@ -1,5 +1,9 @@
- select (seq_region_end - seq_region_start), gene_name from gene order by (seq_region_end - seq_region_start) limit 1;
+ 4)select (seq_region_end - seq_region_start), gene_name from gene order by (seq_region_end - seq_region_start) limit 1;
 ## using the as statement
 select (seq_region_end - seq_region_start) as diff, gene_name from gene order by diff limit 1;
 
-select biotype,transcript_id, count(*) from transcript group by biotype order by count(*) desc;
+5)select biotype,transcript_id, count(*) from transcript group by biotype order by count(*) desc;
+
+6a)select chromosome, description,gene_name, count(*) from gene where description like "canc%" group by chromosome order by count(*) desc;
+6b)
+
