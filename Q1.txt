@@ -7,4 +7,9 @@ Repeating groups( Research code, description, supervisor)
 RG (research code, supervisor)
 (description, name, date of birth, lab name)
 
+3NF: keys(personal number, labcode)
+RG(research code, supervisor)
+Ok(description, lab name)
+DDay(name, date of birth)
+
 
